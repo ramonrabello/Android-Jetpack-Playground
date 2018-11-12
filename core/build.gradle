@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL", '"https://swapi.co/"'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    def kotlin = rootProject.ext.kotlin
+    def networking = rootProject.ext.networking
+    def archComponents = rootProject.ext.archComponents
+    def testing = rootProject.ext.testing
+
+    // region Kotlin
+    implementation kotlin.stdlib
+    implementation kotlin.coroutinesCore
+    implementation kotlin.coroutinesAndroid
+    // endregion
+
+    // region Architecture
+    implementation archComponents.lifecycleExtensions
+    // endregion
+
+    // region Networking
+    implementation networking.okhttp
+    implementation networking.loggingInterceptor
+    implementation networking.okio
+    implementation networking.retrofit
+    implementation networking.gson
+    implementation networking.retrofitConverterGson
+    implementation networking.retrofitCoroutinesAdapter
+    // endregion
+
+    // region Testing
+    testImplementation testing.junit
+    androidTestImplementation testing.runner
+    androidTestImplementation testing.espressoCore
+    // endregion
+}

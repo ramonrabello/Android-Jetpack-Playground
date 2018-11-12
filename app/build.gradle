@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.github.ramonrabello.jetpack.playground"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api project(':core')
+
+    def kotlin = rootProject.ext.kotlin
+    def networking = rootProject.ext.networking
+    def archComponents = rootProject.ext.archComponents
+    def ui = rootProject.ext.ui
+    def testing = rootProject.ext.testing
+
+    // region Kotlin
+    implementation kotlin.stdlib
+    implementation kotlin.coroutinesCore
+    implementation kotlin.coroutinesAndroid
+    // endregion
+
+    // region Architecture
+    implementation archComponents.lifecycleExtensions
+    // endregion
+
+    // region Networking
+    implementation networking.retrofit
+    // endregion
+
+    // region UI
+    implementation ui.appcompat
+    implementation ui.cardview
+    implementation ui.recyclerview
+    implementation ui.material
+    implementation ui.constraintLayout
+    implementation ui.fragment
+    // endregion
+
+    // region Testing
+    testImplementation testing.junit
+    androidTestImplementation testing.runner
+    androidTestImplementation testing.rules
+    androidTestImplementation testing.espressoCore
+    // endregion
+}

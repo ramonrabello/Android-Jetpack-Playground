@@ -1,0 +1,66 @@
+ext {
+    // tools
+    minSdkVersion = 15
+    compileSdkVersion = 28
+    targetSdkVersion = 28
+
+    // dependencies
+    androidx_version = '1.0.0'
+    coroutines_version = '1.0.0'
+    android_testing_version = '1.1.0'
+    constraint_layout_version = '1.1.0'
+    espresso_version = '3.1.0'
+    junit_version = '4.12'
+    arch_components_version = '2.0.0-rc01'
+    test_runner_version = '1.0.2'
+    okhttp_version = '3.10.0'
+    retrofit_version = '2.4.0'
+    gson_version = '2.8.5'
+
+    // region Kotlin
+    kotlin = [
+            stdlib           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            coroutinesCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    ]
+    // endregion
+
+    // region UI
+    ui = [
+            appcompat       : "androidx.appcompat:appcompat:$androidx_version",
+            cardview        : "androidx.cardview:cardview:$androidx_version",
+            recyclerview    : "androidx.recyclerview:recyclerview:$androidx_version",
+            fragment        : "androidx.fragment:fragment:$androidx_version",
+            material        : 'com.google.android.material:material:1.0.0-rc01',
+            constraintLayout: 'androidx.constraintlayout:constraintlayout:1.1.2'
+    ]
+    // endregion
+
+    // region Architecture Components
+    archComponents = [
+            lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$arch_components_version",
+            coreTesting        : "androidx.arch.core:core-testing:$arch_components_version"
+    ]
+    // endregion
+
+    // region Network
+    networking = [
+            okhttp                   : "com.squareup.okhttp3:okhttp:$okhttp_version",
+            loggingInterceptor       : "com.squareup.okhttp3:logging-interceptor:$okhttp_version",
+            okio                     : 'com.squareup.okio:okio:1.14.0',
+            retrofit                 : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            gson                     : "com.google.code.gson:gson:$gson_version",
+            retrofitConverterGson    : "com.squareup.retrofit2:converter-gson:$retrofit_version",
+            retrofitCoroutinesAdapter: 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    ]
+    // endregion
+
+    // region Testing
+    testing = [
+            junit       : "junit:junit:$junit_version",
+            runner      : "androidx.test:runner:$android_testing_version",
+            rules       : "androidx.test:rules:$android_testing_version",
+            espressoCore: "androidx.test.espresso:espresso-core:$espresso_version"
+    ]
+    // endregion
+}

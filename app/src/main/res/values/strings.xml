@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JetPack Playground</string>
+    <string name="people_list_loading_error">Error while loading people list.</string>
+    <string name="person_image_content_description">Person image</string>
+</resources>
